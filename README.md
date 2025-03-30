@@ -1,4 +1,4 @@
-# Aerial Vehicle Mapper 🚁
+# Aerial Vehicle Mapper 🛁
 
 Welcome to **Aerial Vehicle Mapper**! This repository provides a powerful tool for detecting and mapping vehicles from aerial images using the Detectron2 deep learning framework. 🚗🛰️
 
@@ -33,8 +33,7 @@ Make sure you have the following:
 
 ---
 
-
-## Examples 🖼️
+## Examples 🗂️
 
 ### Input Image
 ![Input Image](images/space_view.jpg)
@@ -44,16 +43,24 @@ Make sure you have the following:
 
 ---
 
-
 ## How It Works ⚙️
 
-1. **Setup Vehicle Detector**: Configures the Detectron2 model with the appropriate weights and thresholds.
-2. **Run Detection**: Processes the input image and identifies vehicle instances using predefined COCO classes.
-3. **Visualize Results**: Annotates the input image with bounding boxes and saves it.
+```mermaid
+graph TD;
+    A[Load Aerial Image] -->|Preprocess Image| B(Resize & Normalize);
+    B -->|Pass to Model| C[Detectron2 Model];
+    C -->|Run Inference| D{Object Detection};
+    D -->|Extract Vehicle Coordinates| E[Bounding Box Extraction];
+    E -->|Apply Confidence Threshold| F[Filter Detections];
+    F -->|Overlay Annotations| G[Visualize Results];
+    G -->|Save Annotated Image| H[Store Output];
+    H -->|Integrate with GIS| I[Geospatial Mapping];
+    I -->|Generate Reports| J[Final Output];
+```
 
 ---
 
-## Dependencies 📦
+## Dependencies 🛆
 
 - Detectron2
 - PyTorch
@@ -61,7 +68,5 @@ Make sure you have the following:
 - NumPy
 - PyYAML
 
+**Happy Mapping! 🗰️**
 
-
-
-**Happy Mapping! 🗺️**
